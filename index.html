@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Ledjona Thaci | Aesthetic Practitioner · London</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #0a0a0a;
+    color: #f0ece4;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,10,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 0.5px solid rgba(200,180,140,0.15);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; letter-spacing: 0.12em;
+    color: #c8b48a; font-weight: 400;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(240,236,228,0.6);
+    font-size: 0.78rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: #c8b48a; }
+  .nav-btn {
+    background: transparent; border: 0.5px solid #c8b48a;
+    color: #c8b48a; padding: 0.5rem 1.4rem;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .nav-btn:hover { background: #c8b48a; color: #0a0a0a; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, #1a1408 0%, #0d0d0d 60%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-accent {
+    position: absolute; right: 6rem; top: 50%; transform: translateY(-50%);
+    width: 340px; height: 460px;
+    border: 0.5px solid rgba(200,180,140,0.25);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-accent-inner {
+    width: 90%; height: 90%;
+    background: linear-gradient(160deg, #1c1508, #0f0f0f);
+    border-radius: 1px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border: 0.5px solid rgba(200,180,140,0.1);
+  }
+  .avatar-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(135deg, #2a1f08, #1a1408);
+    border: 1px solid rgba(200,180,140,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; color: #c8b48a;
+    margin-bottom: 1.5rem;
+  }
+  .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #f0ece4; font-weight: 400; margin-bottom: 0.3rem; }
+  .card-title { font-size: 0.72rem; letter-spacing: 0.12em; color: #c8b48a; text-transform: uppercase; }
+  .card-divider { width: 40px; height: 0.5px; background: rgba(200,180,140,0.4); margin: 1.2rem auto; }
+  .card-location { font-size: 0.75rem; color: rgba(240,236,228,0.45); letter-spacing: 0.06em; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 52%; }
+  .hero-tag {
+    font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #c8b48a;
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-tag::before { content: ''; display: inline-block; width: 30px; height: 0.5px; background: #c8b48a; }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300; line-height: 1.08;
+    color: #f0ece4; margin-bottom: 1.6rem;
+  }
+  h1 em { color: #c8b48a; font-style: normal; }
+  .hero-desc {
+    font-size: 0.92rem; line-height: 1.8;
+    color: rgba(240,236,228,0.6);
+    max-width: 440px; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary {
+    background: #c8b48a; color: #0a0a0a;
+    padding: 0.85rem 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border: none; transition: all 0.3s;
+  }
+  .btn-primary:hover { background: #d4c49e; }
+  .btn-outline {
+    background: transparent; border: 0.5px solid rgba(200,180,140,0.4);
+    color: #c8b48a; padding: 0.85rem 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: #c8b48a; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: #111;
+    border-top: 0.5px solid rgba(200,180,140,0.12);
+    border-bottom: 0.5px solid rgba(200,180,140,0.12);
+    display: flex; justify-content: center;
+  }
+  .stat {
+    padding: 2rem 3rem; text-align: center;
+    border-right: 0.5px solid rgba(200,180,140,0.12);
+    flex: 1; max-width: 220px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300; color: #c8b48a; line-height: 1;
+  }
+  .stat-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,236,228,0.4); margin-top: 0.4rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+  .section-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #c8b48a;
+    margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before { content: ''; display: inline-block; width: 20px; height: 0.5px; background: #c8b48a; }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; color: #f0ece4; margin-bottom: 1rem;
+  }
+
+  /* SERVICES */
+  .services { background: #0d0d0d; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(200,180,140,0.1); margin-top: 3rem;
+  }
+  .service-card {
+    background: #0d0d0d; padding: 2.2rem;
+    transition: background 0.3s; position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 0.5px; background: #c8b48a; transition: width 0.4s;
+  }
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { background: #121208; }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300;
+    color: rgba(200,180,140,0.15); line-height: 1; margin-bottom: 1rem;
+  }
+  .service-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: #f0ece4; margin-bottom: 0.8rem; font-weight: 400; }
+  .service-desc { font-size: 0.82rem; line-height: 1.7; color: rgba(240,236,228,0.45); font-weight: 300; }
+
+  /* EXPERIENCE */
+  .experience { background: #0a0a0a; display: flex; gap: 5rem; align-items: flex-start; }
+  .exp-left { flex: 1; }
+  .exp-right { flex: 1.4; }
+  .exp-intro { font-size: 0.9rem; line-height: 1.8; color: rgba(240,236,228,0.55); font-weight: 300; margin-top: 1.5rem; max-width: 380px; }
+  .timeline { margin-top: 2rem; }
+  .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: 5.5px; top: 26px; bottom: -2rem;
+    width: 0.5px; background: rgba(200,180,140,0.15);
+  }
+  .timeline-item:last-child::before { display: none; }
+  .tl-dot { width: 11px; height: 11px; border: 0.5px solid #c8b48a; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .tl-period { font-size: 0.68rem; letter-spacing: 0.1em; color: #c8b48a; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .tl-role { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #f0ece4; font-weight: 400; }
+  .tl-place { font-size: 0.78rem; color: rgba(240,236,228,0.4); margin-top: 0.15rem; }
+
+  /* CERTIFICATIONS */
+  .certs { background: #0d0d0d; }
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .cert-card { border: 0.5px solid rgba(200,180,140,0.15); padding: 1.8rem; transition: border-color 0.3s; }
+  .cert-card:hover { border-color: rgba(200,180,140,0.5); }
+  .cert-icon { font-size: 1.4rem; margin-bottom: 1rem; color: #c8b48a; font-family: 'Cormorant Garamond', serif; }
+  .cert-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: #f0ece4; margin-bottom: 0.4rem; }
+  .cert-issuer { font-size: 0.72rem; color: rgba(240,236,228,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cert-date { font-size: 0.68rem; color: #c8b48a; margin-top: 0.6rem; }
+
+  /* CONTACT */
+  .contact { background: #0a0a0a; text-align: center; }
+  .contact-sub { font-size: 0.9rem; line-height: 1.8; color: rgba(240,236,228,0.5); max-width: 420px; margin: 1rem auto 2.5rem; font-weight: 300; }
+  .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #c8b48a; margin-bottom: 2rem; }
+  .contact-location { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,236,228,0.3); margin-top: 2rem; }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 4rem;
+    border-top: 0.5px solid rgba(200,180,140,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(240,236,228,0.35); }
+  .footer-copy { font-size: 0.7rem; color: rgba(240,236,228,0.2); letter-spacing: 0.08em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; flex-direction: column; }
+    .hero::before { display: none; }
+    .hero-content { max-width: 100%; }
+    .hero-accent { position: static; transform: none; width: 100%; height: auto; margin-top: 2.5rem; }
+    .hero-accent-inner { padding: 2rem; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat { max-width: 50%; border-bottom: 0.5px solid rgba(200,180,140,0.12); }
+    section { padding: 4rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .experience { flex-direction: column; gap: 2rem; }
+    .cert-grid { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">Dr. Ledjona Thaci</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Consultation</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">Medical Doctor · MD</div>
+    <h1>Precision in<br><em>Facial</em><br>Aesthetics</h1>
+    <p class="hero-desc">Internationally trained medical doctor specialising in facial sculpting and aesthetic medicine, bringing clinical excellence from London, New York, and Tirana.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View Services</button>
+    </div>
+  </div>
+  <div class="hero-accent">
+    <div class="hero-accent-inner">
+      <div class="avatar-circle">LT</div>
+      <div class="card-name">Dr. Ledjona Thaci</div>
+      <div class="card-title">Aesthetic Practitioner</div>
+      <div class="card-divider"></div>
+      <div class="card-location">South Kensington, London 🇬🇧</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Countries Trained</div></div>
+  <div class="stat"><div class="stat-num">MD</div><div class="stat-label">Medical Degree</div></div>
+  <div class="stat"><div class="stat-num">NHS</div><div class="stat-label">UK Qualified</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-tag">What I Offer</div>
+  <h2>Aesthetic Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">Facial Sculpting</div>
+      <div class="service-desc">Advanced facial contouring techniques using dermal fillers to define and enhance natural facial structure with precision.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">Laser Treatments</div>
+      <div class="service-desc">Certified aesthetic laser operator delivering skin rejuvenation and resurfacing treatments with clinical-grade equipment.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Anti-Ageing</div>
+      <div class="service-desc">Botulinum toxin and biostimulator treatments for natural, refreshed results that respect your individual features.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">Skin Consultations</div>
+      <div class="service-desc">Comprehensive skin assessment and personalised treatment planning tailored to your aesthetic goals and skin type.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-title">Lip Enhancement</div>
+      <div class="service-desc">Subtle, natural-looking lip augmentation and definition using premium hyaluronic acid fillers for beautiful results.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-title">Medical Aesthetics</div>
+      <div class="service-desc">Full spectrum of non-surgical medical aesthetic procedures, combining clinical safety with artistic precision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="exp-left">
+    <div class="section-tag">My Journey</div>
+    <h2>International Experience</h2>
+    <p class="exp-intro">Trained and practised across Europe and North America, bringing a global perspective to aesthetic medicine right here in London.</p>
+  </div>
+  <div class="exp-right">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-period">Nov 2024 – Present</div>
+          <div class="tl-role">Aesthetic Practitioner</div>
+          <div class="tl-place">Facial Sculpting Clinics · South Kensington, London 🇬🇧</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-period">Jan 2022 – Sep 2024</div>
+          <div class="tl-role">Doctor</div>
+          <div class="tl-place">Royal Diagnostic Center · Tirana, Albania 🇦🇱</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-period">Sep 2023 – Nov 2023</div>
+          <div class="tl-role">Medical Doctor</div>
+          <div class="tl-place">St. Barnabas Hospital · New York, USA 🇺🇸</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-period">Mar 2023 – May 2023</div>
+          <div class="tl-role">Resident Doctor</div>
+          <div class="tl-place">BHR University Hospitals NHS Trust · London 🇬🇧</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-period">Sep 2021 – Dec 2021</div>
+          <div class="tl-role">Doctor</div>
+          <div class="tl-place">University Hospital "Nene Tereza" · Tirana, Albania 🇦🇱</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs" id="certifications">
+  <div class="section-tag">Credentials</div>
+  <h2>Licences &amp; Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">✦</div>
+      <div class="cert-name">Certified Aesthetic Laser Operator</div>
+      <div class="cert-issuer">LaserProtection · CLSO/M</div>
+      <div class="cert-date">Issued July 2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">✦</div>
+      <div class="cert-name">OET — Occupational English Test</div>
+      <div class="cert-issuer">OET Organisation</div>
+      <div class="cert-date">Issued March 2022</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">✦</div>
+      <div class="cert-name">Medical License</div>
+      <div class="cert-issuer">Urdheri i Mjekut · Albania</div>
+      <div class="cert-date">Issued January 2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+  <h2>Book a Consultation</h2>
+  <p class="contact-sub">Ready to begin your aesthetic journey? Reach out for a private, personalised consultation in London.</p>
+  <div class="contact-email">hello@drledjonathaci.com</div>
+  <button class="btn-primary">Schedule Now</button>
+  <div class="contact-location">Facial Sculpting Clinics · South Kensington · London, United Kingdom</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Dr. Ledjona Thaci, MD</div>
+  <div class="footer-copy">© 2025 · All Rights Reserved</div>
+</footer>
+
+</body>
+</html>
